@@ -351,4 +351,124 @@
   // ===== UTIL =====
   const $ = s => document.querySelector(s);
   const $$ = s => Array.from(document.querySelectorAll(s));
-  const clamp
+  const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ===== PROJETS AVANT/APRÈS =====
+  // Placez vos fichiers dans images/realisations/ (sans premier /)
+  const PROJECTS = [
+    {
+      id: 'p1', titre: 'Salle de bain – Reprise complète après dégâts d’humidité', ville: 'Beauvais',
+      categories: ['Rénovation','Salles de bain','Carrelage & sols'],
+      avant: 'images/realisations/chantier-1-avant.jpeg',
+      apres: 'images/realisations/chantier-1-apres.jpeg',
+      resume: 'Dépose, traitement des murs, étanchéité et finitions haut de gamme.'
+    },
+    {
+      id: 'p2', titre: 'Douche italienne bois – Chantilly', ville: 'Chantilly',
+      categories: ['Rénovation','Salles de bain','Douche italienne'],
+      avant: 'images/realisations/chantier-2-avant.jpeg',
+      apres: 'images/realisations/chantier-2-apres.jpeg',
+      resume: 'Création d’une douche à l’italienne, parements bois, robinetterie encastrée.'
+    },
+    {
+      id: 'p3', titre: 'Salle de bain mansardée – Compiègne', ville: 'Compiègne',
+      categories: ['Rénovation','Salles de bain'],
+      avant: 'images/realisations/chantier-3-avant.jpeg',
+      apres: 'images/realisations/chantier-3-apres.jpeg',
+      resume: 'Modernisation complète, grands carreaux clairs et paroi vitrée.'
+    },
+    {
+      id: 'p4', titre: 'Salle d’eau – Style bois & vasque pierre', ville: 'Clermont',
+      categories: ['Rénovation','Salles de bain','Carrelage & sols'],
+      avant: 'images/realisations/chantier-4-avant.jpeg',
+      apres: 'images/realisations/chantier-4-apres.jpeg',
+      resume: 'Reprise des supports, pose carrelage mural et mobilier sur-mesure.'
+    }
+  ];
+
+  // Filtres
+  const allCats = Array.from(new Set(PROJECTS.flatMap(p => p.categories)));
+  const state = { filter: 'Tous' };
+
+  function renderFilters(){
+    const wrap = document.getElementById('filters');
+    wrap.innerHTML = '';
+    const cats = ['Tous', ...allCats];
+    cats.forEach(cat => {
+      const b = document.createElement('button');
+      b.className = 'chip' + (state.filter===cat?' active':'');
+      b.textContent = cat;
+      b.onclick = () => { state.filter = cat; renderProjects(); renderFilters(); };
+      wrap.appendChild(b);
+    });
+  }
+
+  function createCompare(avant, apres){
+    const box = document.createElement('div');
+    box.className = 'compare';
+    const imgBefore = document.createElement('img');
+    imgBefore.src = avant; imgBefore.alt = 'Avant chantier';
+    const imgAfter = document.createElement('img');
+    imgAfter.src = apres; imgAfter.alt = 'Après chantier'; imgAfter.className='after';
+    const handle = document.createElement('div'); handle.className='handle';
+    const dot = document.createElement('div'); dot.className='dot';
+    const range = document.createElement('input'); range.type='range'; range.min=0; range.max=100; range.value=50; range.ariaLabel='Comparer avant/après';
+
+    function update(){
+      const v = clamp(parseInt(range.value,10)||50,0,100);
+      imgAfter.style.clipPath = `inset(0 0 0 ${v}%)`;
+      handle.style.left = v + '%';
+      dot.style.left = v + '%';
+    }
+    range.addEventListener('input', update);
+
+    box.append(imgBefore,imgAfter,range,handle,dot);
+    update();
+    return box;
+  }
+
+  function renderProjects(){
+    const root = document.getElementById('projects');
+    root.innerHTML='';
+    const list = state.filter==='Tous' ? PROJECTS : PROJECTS.filter(p => p.categories.includes(state.filter));
+    list.forEach(p => {
+      const card = document.createElement('article');
+      card.className='card project-card';
+      card.style.padding='12px';
+
+      const comp = createCompare(p.avant,p.apres);
+      card.appendChild(comp);
+
+      const inner = document.createElement('div'); inner.style.padding='12px';
+      const h = document.createElement('h4'); h.textContent=p.titre; inner.appendChild(h);
+      const small = document.createElement('p'); small.style.color='var(--muted)'; small.textContent = p.resume + ' — ' + p.ville; inner.appendChild(small);
+
+      const tags = document.createElement('div'); tags.className='tags';
+      p.categories.forEach(c=>{ const t=document.createElement('span'); t.className='tag'; t.textContent=c; tags.appendChild(t); });
+      inner.appendChild(tags);
+
+      card.appendChild(inner);
+      root.appendChild(card);
+    })
+  }
+
+  renderFilters();
+  renderProjects();
+
+  // ===== FORMULAIRE (mailto simple) =====
+  document.getElementById('formDevis').addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.currentTarget).entries());
+    if(!data.nom || !data.tel || !data.email || !data.message){
+      alert('Merci de renseigner les champs obligatoires (Nom, Téléphone, Email, Message).');
+      return;
+    }
+    const dest = 'valentingermain184@gmail.com';
+    const sujet = encodeURIComponent('Demande de devis – ' + (data.type||'Projet'));
+    const corps = encodeURIComponent(`Nom: ${data.nom}\nTéléphone: ${data.tel}\nEmail: ${data.email}\nVille: ${data.ville||''}\nType: ${data.type||''}\nDélai: ${data.delai||''}\n\nMessage:\n${data.message}`);
+    window.location.href = `mailto:${dest}?subject=${sujet}&body=${corps}`;
+  });
+  </script>
+</body>
+</html>
