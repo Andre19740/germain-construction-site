@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GERMAIN CONSTRUCTION – Artisan à Beauvais | Rénovation, extension, tout corps d’état</title>
+  <meta name="description" content="GERMAIN CONSTRUCTION – Artisan haut de gamme à Beauvais (Oise). Rénovation, extensions, salles de bain, carrelage, enduits. Découvrez nos chantiers Avant/Après et demandez un devis gratuit." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" href="favicon.png" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#FAFAF8;
+      --fg:#1f2937;
+      --accent:#b59a00;   /* doré comme le logo */
+      --muted:#6b7280;
+      --card:#ffffff;
+      --radius:18px;
+      --shadow:0 8px 24px rgba(0,0,0,.08);
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;color:var(--fg)}
+    body{
+      background:
+        linear-gradient(to bottom, rgba(255,255,255,.92), rgba(255,255,255,.92)),
+        url('images/bg-pro.webp') center/cover fixed no-repeat;
+    }
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 18px}
+    header{position:sticky;top:0;z-index:20;background:rgba(250,250,248,.9);backdrop-filter:saturate(180%) blur(6px);border-bottom:1px solid #e8e5df}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand h1{font-family:Montserrat,system-ui;font-size:18px;margin:0;letter-spacing:.3px}
+    .brand img.logo{width:40px;height:40px;border-radius:10px;object-fit:cover;display:block}
+    .nav a.btn{display:inline-block;padding:10px 14px;border-radius:12px;border:1px solid #e3dfd9;background:#fff;box-shadow:var(--shadow);font-weight:600}
+    .nav .cta{background:var(--accent);color:#fff;border-color:var(--accent)}
+    section{scroll-margin-top:90px}
+
+    .hero{padding:60px 0}
+    .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+    .hero h2{font-family:Montserrat,system-ui;font-size:40px;line-height:1.1;margin:0 0 14px}
+    .hero p{font-size:18px;color:var(--muted);margin:0 0 22px}
+    .pillrow{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 24px}
+    .pill{background:#fff;border:1px solid #ece8e2;padding:8px 12px;border-radius:999px;font-size:13px}
+    .buttons{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-lg{padding:14px 18px;border-radius:14px;border:1px solid #e3dfd9;background:#fff;font-weight:700;box-shadow:var(--shadow)}
+    .btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .card{background:var(--card);border:1px solid #ece8e2;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .hero .shot{min-height:280px}
+    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+    .kpis .k{padding:16px;text-align:center}
+    .k strong{font-size:24px;display:block}
+
+    section.block{padding:54px 0}
+    h3.section-title{font-family:Montserrat;margin:0 0 16px;font-size:28px}
+    .section-sub{color:var(--muted);margin:0 0 22px}
+    .grid{display:grid;gap:16px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .service{padding:18px}
+    .service h4{margin:0 0 8px}
+
+    .project-card{overflow:hidden}
+    .compare{position:relative;border-radius:14px;overflow:hidden;height:260px;background:#ddd}
+    .compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .compare .after{clip-path:inset(0 0 0 50%)}
+    .compare input[type=range]{-webkit-appearance:none;appearance:none;position:absolute;inset:0;width:100%;height:100%;background:transparent;outline:none;margin:0}
+    .compare .handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.2)}
+    .compare .dot{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:34px;height:34px;border-radius:999px;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.2)}
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .tag{font-size:12px;border:1px solid #e9e5df;padding:6px 10px;border-radius:999px;background:#fff}
+
+    .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+    .chip{border:1px solid #e3dfd9;background:#fff;border-radius:999px;padding:8px 12px;font-weight:600}
+    .chip.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+    .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
+    form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    input,select,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #e3dfd9;background:#fff}
+    textarea{min-height:120px}
+    .notice{font-size:12px;color:var(--muted)}
+
+    footer{padding:28px 0 50px;color:#555;border-top:1px solid #e9e5df}
+
+    @media (max-width: 900px){
+      .hero .wrap,.contact{grid-template-columns:1fr}
+      .grid.cols-3{grid-template-columns:1fr 1fr}
+      .kpis{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width: 600px){
+      .grid.cols-3{grid-template-columns:1fr}
+      .hero h2{font-size:32px}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "GERMAIN CONSTRUCTION",
+    "image": "images/logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "14 rue des ormeaux 60480 Francasten",
+      "addressLocality": "Beauvais",
+      "postalCode": "60480",
+      "addressCountry": "FR"
+    },
+    "areaServed": ["Beauvais","Oise","Creil","Compiègne","Chantilly","Clermont","Île-de-France nord"],
+    "telephone": "0604506996",
+    "url": "",
+    "openingHours": "Lun–Sam 8h–19h"
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="images/logo.png" alt="Logo GERMAIN CONSTRUCTION" class="logo">
+        <h1>GERMAIN CONSTRUCTION</h1>
+      </div>
+      <div class="actions">
+        <a class="btn" href="tel:0604506996">Appeler</a>
+        <a class="btn" href="#contact">Contact</a>
+        <a class="btn cta" href="#contact">Devis gratuit</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container wrap">
+        <div>
+          <h2>Artisan haut de gamme à Beauvais – rénovation, extension, tout corps d’état</h2>
+          <p>Des chantiers impeccables, des finitions durables. Découvrez nos <strong>Avant/Après</strong> et confiez-nous vos travaux avec l’assurance d’un accompagnement sérieux, flexible et maîtrisé.</p>
+          <div class="pillrow">
+            <span class="pill">Sérieux & professionnalisme</span>
+            <span class="pill">Haut de gamme</span>
+            <span class="pill">Tout corps d’état</span>
+            <span class="pill">Intervention Oise & alentours</span>
+          </div>
+          <div class="buttons">
+            <a class="btn-lg btn-primary" href="#realisations">Voir les réalisations</a>
+            <a class="btn-lg" href="#contact">Obtenir un devis</a>
+          </div>
+          <div class="kpis">
+            <div class="card k"><strong id="k1">+120</strong><span>chantiers livrés</span></div>
+            <div class="card k"><strong id="k2">4.9/5</strong><span>avis moyens</span></div>
+            <div class="card k"><strong id="k3">Suivi</strong><span>chantier quotidien</span></div>
+            <div class="card k"><strong id="k4">48h</strong><span>pour un RDV</span></div>
+          </div>
+        </div>
+        <div class="card shot" aria-label="Photo chantier">
+          <img src="images/hero-artisan.png" alt="Artisans à Beauvais, travail soigné sur chantier" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius)">
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="block">
+      <div class="container">
+        <h3 class="section-title">Prestations</h3>
+        <p class="section-sub">Interlocuteur unique, coordination <em>tout corps d’état</em>. De la visite technique au rendu final, nous pilotons votre chantier de A à Z.</p>
+        <div class="grid cols-3">
+          <article class="card service">
+            <h4>Rénovation complète</h4>
+            <p>Appartements, maisons, commerces. Gestion des corps d’état, planning et finitions haut de gamme.</p>
+          </article>
+          <article class="card service">
+            <h4>Extensions / surélévations</h4>
+            <p>Gagnez de l’espace avec une structure durable et esthétique, intégrée à l’existant.</p>
+          </article>
+          <article class="card service">
+            <h4>Gros œuvre / fondations / dalles</h4>
+            <p>Fondations, dalles, murs, maçonnerie lourde et structurelle, dans les règles de l’art.</p>
+          </article>
+          <article class="card service">
+            <h4>Carrelage & sols</h4>
+            <p>Pose de carrelage, faïence, pierres naturelles, terrasses et escaliers extérieurs.</p>
+          </article>
+          <article class="card service">
+            <h4>Enduits & façades</h4>
+            <p>Réfection d’enduits, ravalement, isolation par l’extérieur, reprises d’aspect et teintes.</p>
+          </article>
+          <article class="card service">
+            <h4>Maçonnerie paysagère</h4>
+            <p>Murets, piscines, clôtures, allées, aménagements extérieurs haut de gamme.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="realisations" class="block">
+      <div class="container">
+        <h3 class="section-title">Réalisations – Avant / Après</h3>
+        <p class="section-sub">Parcourez nos transformations marquantes. Utilisez le curseur pour comparer l’avant et l’après, et filtrez par type de chantier.</p>
+        <div class="filters" id="filters"></div>
+        <div class="grid cols-3" id="projects"></div>
+      </div>
+    </section>
+
+    <section id="apropos" class="block">
+      <div class="container">
+        <h3 class="section-title">À propos</h3>
+        <div class="card" style="padding:18px">
+          <p><strong>GERMAIN CONSTRUCTION</strong>, artisan basé à Beauvais, intervient dans toute l’Oise et ses alentours. Notre promesse : <em>sérieux, propreté de chantier, respect des délais et finitions durables</em>. Un seul interlocuteur pour piloter votre projet <em>tout corps d’état</em>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="avis" class="block">
+      <div class="container">
+        <h3 class="section-title">Avis clients</h3>
+        <div class="grid cols-3">
+          <div class="card" style="padding:18px"><p>“Travail impeccable et communication fluide. Le rendu est superbe.”</p><p><strong>— C. Martin</strong></p></div>
+          <div class="card" style="padding:18px"><p>“Avant/Après bluffant, délais respectés, chantier propre chaque soir.”</p><p><strong>— S. Lefèvre</strong></p></div>
+          <div class="card" style="padding:18px"><p>“Conseils pertinents et exécution haut de gamme. Je recommande.”</p><p><strong>— A. Dubois</strong></p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="zone" class="block">
+      <div class="container">
+        <h3 class="section-title">Zone d’intervention</h3>
+        <div class="card" style="padding:18px">
+          <p>Beauvais, Oise (60), Creil, Compiègne, Chantilly, Clermont et nord Île-de-France. Déplacements possibles au-delà selon projet.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="block">
+      <div class="container contact">
+        <div>
+          <h3 class="section-title">Devis & contact</h3>
+          <p class="section-sub">Expliquez brièvement votre besoin et, si possible, joignez quelques photos. Nous revenons vers vous sous 24–48h.</p>
+          <form id="formDevis" class="card" style="padding:18px" novalidate>
+            <div class="row">
+              <div>
+                <label for="nom">Nom*</label>
+                <input id="nom" name="nom" required placeholder="Votre nom" />
+              </div>
+              <div>
+                <label for="tel">Téléphone*</label>
+                <input id="tel" name="tel" required placeholder="06 04 50 69 96" />
+              </div>
+            </div>
+            <div class="row">
+              <div>
+                <label for="email">Email*</label>
+                <input id="email" name="email" type="email" required placeholder="valentingermain184@gmail.com" />
+              </div>
+              <div>
+                <label for="ville">Ville</label>
+                <input id="ville" name="ville" placeholder="Beauvais, Clermont…" />
+              </div>
+            </div>
+            <div class="row">
+              <div>
+                <label for="type">Type de projet</label>
+                <select id="type" name="type">
+                  <option>Rénovation</option>
+                  <option>Extension / surélévation</option>
+                  <option>Gros œuvre / dalles</option>
+                  <option>Carrelage & sols</option>
+                  <option>Enduits & façades</option>
+                  <option>Salles de bain</option>
+                </select>
+              </div>
+              <div>
+                <label for="delai">Délai souhaité</label>
+                <select id="delai" name="delai">
+                  <option>Au plus vite</option>
+                  <option>1–3 mois</option>
+                  <option>3–6 mois</option>
+                  <option>6+ mois</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label for="message">Votre message*</label>
+              <textarea id="message" name="message" required placeholder="Décrivez votre projet en quelques lignes…"></textarea>
+            </div>
+            <div>
+              <label for="fichiers">Photos (facultatif)</label>
+              <input id="fichiers" name="fichiers" type="file" multiple accept="image/*,.pdf" />
+            </div>
+            <p class="notice">En soumettant ce formulaire, vous acceptez d’être recontacté·e par GERMAIN CONSTRUCTION. Vos données ne sont utilisées que pour traiter votre demande (RGPD).</p>
+            <div class="buttons">
+              <button class="btn-lg btn-primary" type="submit">Envoyer la demande</button>
+              <a class="btn-lg" href="https://wa.me/33604506996" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+          </form>
+        </div>
+        <aside class="card" style="padding:18px">
+          <h4>Contact direct</h4>
+          <p><strong>Téléphone :</strong> <a href="tel:0604506996">0604506996</a></p>
+          <p><strong>Email :</strong> <a href="mailto:valentingermain184@gmail.com">valentingermain184@gmail.com</a></p>
+          <p><strong>Adresse :</strong> 14 rue des ormeaux 60480 Francasten</p>
+          <p><strong>Horaires :</strong> Lun–Sam 8h–19h</p>
+          <p><em>Devis gratuit et visite technique possible sous 48h.</em></p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <p>© <span id="year"></span> GERMAIN CONSTRUCTION – Artisan à Beauvais. Tous droits réservés.</p>
+        <p>
+          <a href="#mentions">Mentions légales</a> · <a href="#confidentialite">Politique de confidentialité</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const PROJECTS = [
+    {
+      id: 'p1', titre: 'Salle de bain – Reprise complète après dégâts d’humidité', ville: 'Beauvais',
+      categories: ['Rénovation','Salles de bain','Carrelage & sols'],
+      avant: 'images/realisations/chantier-1-avant.jpeg',
+      apres: 'images/realisations/chantier-1-apres.jpeg',
+      resume: 'Dépose, traitement des murs, étanchéité et finitions haut de gamme.'
+    },
+    {
+      id: 'p2', titre: 'Douche italienne bois – Chantilly', ville: 'Chantilly',
+      categories: ['Rénovation','Salles de bain','Douche italienne'],
+      avant: 'images/realisations/chantier-2-avant.jpeg',
+      apres: 'images/realisations/chantier-2-apres.jpeg',
+      resume: 'Création d’une douche à l’italienne, parements bois, robinetterie encastrée.'
+    },
+    {
+      id: 'p3', titre: 'Salle de bain mansardée – Compiègne', ville: 'Compiègne',
+      categories: ['Rénovation','Salles de bain'],
+      avant: 'images/realisations/chantier-3-avant.jpeg',
+      apres: 'images/realisations/chantier-3-apres.jpeg',
+      resume: 'Modernisation complète, grands carreaux clairs et paroi vitrée.'
+    },
+    {
+      id: 'p4', titre: 'Salle d’eau – Style bois & vasque pierre', ville: 'Clermont',
+      categories: ['Rénovation','Salles de bain','Carrelage & sols'],
+      avant: 'images/realisations/chantier-4-avant.jpeg',
+      apres: 'images/realisations/chantier-4-apres.jpeg',
+      resume: 'Reprise des supports, pose carrelage mural et mobilier sur-mesure.'
+    }
+  ];
+
+  const allCats = Array.from(new Set(PROJECTS.flatMap(p => p.categories)));
+  const state = { filter: 'Tous' };
+
+  function renderFilters(){
+    const wrap = document.getElementById('filters');
+    wrap.innerHTML = '';
+    const cats = ['Tous', ...allCats];
+    cats.forEach(cat => {
+      const b = document.createElement('button');
+      b.className = 'chip' + (state.filter===cat?' active':'');
+      b.textContent = cat;
+      b.onclick = () => { state.filter = cat; renderProjects(); renderFilters(); };
+      wrap.appendChild(b);
+    });
+  }
+
+  function createCompare(avant, apres){
+    const box = document.createElement('div');
+    box.className = 'compare';
+    const imgBefore = document.createElement('img');
+    imgBefore.src = avant; imgBefore.alt = 'Avant chantier';
+    const imgAfter = document.createElement('img');
+    imgAfter.src = apres; imgAfter.alt = 'Après chantier'; imgAfter.className='after';
+    const handle = document.createElement('div'); handle.className='handle';
+    const dot = document.createElement('div'); dot.className='dot';
+    const range = document.createElement('input'); range.type='range'; range.min=0; range.max=100; range.value=50; range.ariaLabel='Comparer avant/après';
+
+    function update(){
+      const v = clamp(parseInt(range.value,10)||50,0,100);
+      imgAfter.style.clipPath = `inset(0 0 0 ${v}%)`;
+      handle.style.left = v + '%';
+      dot.style.left = v + '%';
+    }
+    range.addEventListener('input', update);
+
+    box.append(imgBefore,imgAfter,range,handle,dot);
+    update();
+    return box;
+  }
+
+  function renderProjects(){
+    const root = document.getElementById('projects');
+    root.innerHTML='';
+    const list = state.filter==='Tous' ? PROJECTS : PROJECTS.filter(p => p.categories.includes(state.filter));
+    list.forEach(p => {
+      const card = document.createElement('article');
+      card.className='card project-card';
+      card.style.padding='12px';
+
+      const comp = createCompare(p.avant,p.apres);
+      card.appendChild(comp);
+
+      const inner = document.createElement('div'); inner.style.padding='12px';
+      const h = document.createElement('h4'); h.textContent=p.titre; inner.appendChild(h);
+      const small = document.createElement('p'); small.style.color='var(--muted)'; small.textContent = p.resume + ' — ' + p.ville; inner.appendChild(small);
+
+      const tags = document.createElement('div'); tags.className='tags';
+      p.categories.forEach(c=>{ const t=document.createElement('span'); t.className='tag'; t.textContent=c; tags.appendChild(t); });
+      inner.appendChild(tags);
+
+      card.appendChild(inner);
+      root.appendChild(card);
+    })
+  }
+
+  renderFilters();
+  renderProjects();
+
+  document.getElementById('formDevis').addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.currentTarget).entries());
+    if(!data.nom || !data.tel || !data.email || !data.message){
+      alert('Merci de renseigner les champs obligatoires (Nom, Téléphone, Email, Message).');
+      return;
+    }
+    const dest = 'valentingermain184@gmail.com';
+    const sujet = encodeURIComponent('Demande de devis – ' + (data.type||'Projet'));
+    const corps = encodeURIComponent(`Nom: ${data.nom}
+Téléphone: ${data.tel}
+Email: ${data.email}
+Ville: ${data.ville||''}
+Type: ${data.type||''}
+Délai: ${data.delai||''}
+
+Message:
+${data.message}`);
+    window.location.href = `mailto:${dest}?subject=${sujet}&body=${corps}`;
+  });
+  </script>
+</body>
+</html>
