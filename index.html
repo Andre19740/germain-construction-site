@@ -6,13 +6,14 @@
   <title>GERMAIN CONSTRUCTION – Artisan à Beauvais | Rénovation, extension, tout corps d’état</title>
   <meta name="description" content="GERMAIN CONSTRUCTION – Artisan haut de gamme à Beauvais (Oise). Rénovation, extensions, salles de bain, carrelage, enduits. Découvrez nos chantiers Avant/Après et demandez un devis gratuit." />
   <meta name="robots" content="index, follow" />
+  <link rel="icon" href="favicon.png" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#FAFAF8;           /* fond très clair */
-      --fg:#1f2937;           /* texte anthracite */
-      --accent:#b59a00;       /* doré = couleur du logo */
+      --bg:#FAFAF8;
+      --fg:#1f2937;
+      --accent:#b59a00;   /* doré comme le logo */
       --muted:#6b7280;
       --card:#ffffff;
       --radius:18px;
@@ -21,12 +22,10 @@
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;color:var(--fg)}
-    /* Fond pro (avec voile blanc pour lisibilité) */
     body{
       background:
         linear-gradient(to bottom, rgba(255,255,255,.92), rgba(255,255,255,.92)),
-        url('images/bg-pro.webp') center/cover fixed no-repeat,
-        url('https://source.unsplash.com/2000x1400/?construction,worksite,texture,wall') center/cover fixed no-repeat;
+        url('images/bg-pro.webp') center/cover fixed no-repeat;
     }
     a{color:var(--accent);text-decoration:none}
     a:hover{text-decoration:underline}
@@ -39,7 +38,7 @@
     .nav a.btn{display:inline-block;padding:10px 14px;border-radius:12px;border:1px solid #e3dfd9;background:#fff;box-shadow:var(--shadow);font-weight:600}
     .nav .cta{background:var(--accent);color:#fff;border-color:var(--accent)}
     section{scroll-margin-top:90px}
-    /* Hero */
+
     .hero{padding:60px 0}
     .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
     .hero h2{font-family:Montserrat,system-ui;font-size:40px;line-height:1.1;margin:0 0 14px}
@@ -55,7 +54,6 @@
     .kpis .k{padding:16px;text-align:center}
     .k strong{font-size:24px;display:block}
 
-    /* Services */
     section.block{padding:54px 0}
     h3.section-title{font-family:Montserrat;margin:0 0 16px;font-size:28px}
     .section-sub{color:var(--muted);margin:0 0 22px}
@@ -64,7 +62,6 @@
     .service{padding:18px}
     .service h4{margin:0 0 8px}
 
-    /* Avant/Après */
     .project-card{overflow:hidden}
     .compare{position:relative;border-radius:14px;overflow:hidden;height:260px;background:#ddd}
     .compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -75,22 +72,18 @@
     .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
     .tag{font-size:12px;border:1px solid #e9e5df;padding:6px 10px;border-radius:999px;background:#fff}
 
-    /* Filtres */
     .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
     .chip{border:1px solid #e3dfd9;background:#fff;border-radius:999px;padding:8px 12px;font-weight:600}
     .chip.active{background:var(--accent);color:#fff;border-color:var(--accent)}
 
-    /* Contact */
     .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
     form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     input,select,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #e3dfd9;background:#fff}
     textarea{min-height:120px}
     .notice{font-size:12px;color:var(--muted)}
 
-    /* Footer */
     footer{padding:28px 0 50px;color:#555;border-top:1px solid #e9e5df}
 
-    /* Responsive */
     @media (max-width: 900px){
       .hero .wrap,.contact{grid-template-columns:1fr}
       .grid.cols-3{grid-template-columns:1fr 1fr}
@@ -102,7 +95,6 @@
     }
   </style>
 
-  <!-- Schema.org Local Business -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -139,7 +131,6 @@
   </header>
 
   <main>
-    <!-- HERO -->
     <section class="hero">
       <div class="container wrap">
         <div>
@@ -158,24 +149,16 @@
           <div class="kpis">
             <div class="card k"><strong id="k1">+120</strong><span>chantiers livrés</span></div>
             <div class="card k"><strong id="k2">4.9/5</strong><span>avis moyens</span></div>
-            <!-- KPI rassurant à la place de 10+ ans -->
             <div class="card k"><strong id="k3">Suivi</strong><span>chantier quotidien</span></div>
             <div class="card k"><strong id="k4">48h</strong><span>pour un RDV</span></div>
           </div>
         </div>
-
-        <!-- Image héros : ta photo + secours Unsplash si absente -->
         <div class="card shot" aria-label="Photo chantier">
-          <img
-            src="images/hero-artisan.png"
-            onerror="this.onerror=null;this.src='https://source.unsplash.com/1600x900/?construction,artisan,smile,france';"
-            alt="Artisans à Beauvais, travail soigné sur chantier"
-            style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius)">
+          <img src="images/hero-artisan.png" alt="Artisans à Beauvais, travail soigné sur chantier" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius)">
         </div>
       </div>
     </section>
 
-    <!-- SERVICES -->
     <section id="services" class="block">
       <div class="container">
         <h3 class="section-title">Prestations</h3>
@@ -209,7 +192,6 @@
       </div>
     </section>
 
-    <!-- REALISATIONS / AVANT-APRES -->
     <section id="realisations" class="block">
       <div class="container">
         <h3 class="section-title">Réalisations – Avant / Après</h3>
@@ -219,7 +201,6 @@
       </div>
     </section>
 
-    <!-- A PROPOS -->
     <section id="apropos" class="block">
       <div class="container">
         <h3 class="section-title">À propos</h3>
@@ -229,7 +210,6 @@
       </div>
     </section>
 
-    <!-- AVIS CLIENTS -->
     <section id="avis" class="block">
       <div class="container">
         <h3 class="section-title">Avis clients</h3>
@@ -241,7 +221,6 @@
       </div>
     </section>
 
-    <!-- ZONE -->
     <section id="zone" class="block">
       <div class="container">
         <h3 class="section-title">Zone d’intervention</h3>
@@ -251,7 +230,6 @@
       </div>
     </section>
 
-    <!-- CONTACT / DEVIS -->
     <section id="contact" class="block">
       <div class="container contact">
         <div>
@@ -339,12 +317,9 @@
   </footer>
 
   <script>
-  // ===== UTIL =====
   const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // ===== PROJETS AVANT/APRÈS =====
-  // Placez vos fichiers dans images/realisations/ (sans premier /)
   const PROJECTS = [
     {
       id: 'p1', titre: 'Salle de bain – Reprise complète après dégâts d’humidité', ville: 'Beauvais',
@@ -444,7 +419,6 @@
   renderFilters();
   renderProjects();
 
-  // ===== FORMULAIRE (mailto simple) =====
   document.getElementById('formDevis').addEventListener('submit', (e)=>{
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.currentTarget).entries());
@@ -454,7 +428,15 @@
     }
     const dest = 'valentingermain184@gmail.com';
     const sujet = encodeURIComponent('Demande de devis – ' + (data.type||'Projet'));
-    const corps = encodeURIComponent(`Nom: ${data.nom}\nTéléphone: ${data.tel}\nEmail: ${data.email}\nVille: ${data.ville||''}\nType: ${data.type||''}\nDélai: ${data.delai||''}\n\nMessage:\n${data.message}`);
+    const corps = encodeURIComponent(`Nom: ${data.nom}
+Téléphone: ${data.tel}
+Email: ${data.email}
+Ville: ${data.ville||''}
+Type: ${data.type||''}
+Délai: ${data.delai||''}
+
+Message:
+${data.message}`);
     window.location.href = `mailto:${dest}?subject=${sujet}&body=${corps}`;
   });
   </script>
