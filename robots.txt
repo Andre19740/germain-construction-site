@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://Andre19740.github.io/germain-construction-site/sitemap.xml
